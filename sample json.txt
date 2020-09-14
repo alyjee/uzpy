@@ -1,0 +1,11 @@
+{
+	"appName":"My App",
+	"applicationID":"my App id",
+	"appLogo": "png/jpeg/svg file path"   // validation required
+	"appConfig": {
+		"uat":"files/uat-config.json",
+		"sit":"files/sit-config.json",
+		"prod":"files/prod-config.json"
+	}
+	"msAppUUID":"au1293jasidh98saud82u13" //app uuid string
+}

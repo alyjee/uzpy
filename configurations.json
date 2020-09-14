@@ -1,0 +1,11 @@
+{
+	"appName":"My App",
+	"applicationID":"myAppId123",
+	"appLogo": "source/assets/logo.jpg",
+	"appConfig": {
+		"uat":"files/uat-config.json",
+		"sit":"files/sit-config.json",
+		"prod":"files/prod-config.json"
+	},
+	"msAppUUID":"au1293jasidh98saud82u13"
+}

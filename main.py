@@ -2,6 +2,20 @@ from os import path
 import os
 import json
 from shutil import copyfile
+import xml.etree.ElementTree as ET
+
+def replaceAppName(appName, targetFile):
+	print("asda")
+	allowed_file_types = ('.xml')
+	if path.exists(targetFile) and targetFile.lower().endswith(allowed_file_types):
+		print("File {0} exists and has .xml file".format(targetFile))
+		tree = ET.parse(targetFile)
+		# print(tree.findall("string"))
+		for ele in tree.findall("string"):
+			if ele.attrib["name"] == "app_name":
+				print("Old App Name: {0} New App Name: {1}".format(ele.text, appName))
+				ele.text = appName
+		tree.write(targetFile)
 
 def findAndReplaceText(filePath, replaceText):
 	allowed_file_types = ('.txt', '.json')
@@ -47,6 +61,8 @@ def main():
 			print("Replacing msAppUuid in following JSON files:")
 			print("files/uat-config.json")
 			findAndReplaceText(json_data["appConfig"]["uat"], _newMsAppUuid)
+			
 			findAndReplaceFile(json_data["appLogo"], "destination/assets/logo.png")
+			replaceAppName(json_data["appName"], "destination/strings.xml")
 
 main()

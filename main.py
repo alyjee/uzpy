@@ -17,7 +17,7 @@ def replaceAppName(appName, targetFile):
 				ele.text = appName
 		tree.write(targetFile)
 
-def findAndReplaceText(filePath, replaceText):
+def findAndReplaceInJson(filePath, replaceText):
 	allowed_file_types = ('.txt', '.json')
 	if path.exists(filePath) and filePath.lower().endswith(allowed_file_types):
 		with open(filePath, 'r') as file :
@@ -60,7 +60,7 @@ def main():
 			_newMsAppUuid = json_data["msAppUUID"]
 			print("Replacing msAppUuid in following JSON files:")
 			print("files/uat-config.json")
-			findAndReplaceText(json_data["appConfig"]["uat"], _newMsAppUuid)
+			findAndReplaceInJson(json_data["appConfig"]["uat"], _newMsAppUuid)
 			
 			findAndReplaceFile(json_data["appLogo"], "destination/assets/logo.png")
 			replaceAppName(json_data["appName"], "destination/strings.xml")
